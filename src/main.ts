@@ -9,10 +9,10 @@ async function bootstrap() {
   app.useBodyParser('urlencoded', { limit: '15mb', extended: true });
 
   app.enableCors({
-    origin: ['http://localhost:3000', 'http://localhost:3001'],
+    origin: true,
     credentials: true,
   });
 
-  await app.listen(4000);
+  await app.listen(process.env.PORT || 4000, '0.0.0.0');
 }
 bootstrap();
